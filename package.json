@@ -1,0 +1,20 @@
+{
+  "name": "kanban-challenge",
+  "version": "1.0.0",
+  "description": "kanban application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/hello.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bogdanthindev/kanban-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bogdanthindev/kanban-challenge/issues"
+  },
+  "homepage": "https://github.com/bogdanthindev/kanban-challenge#readme"
+}

@@ -1,0 +1,7 @@
+web:
+  build: .
+  volumes: 
+    - ./:/src/
+  ports: 
+    - "3000:3000"
+  command: nodemon src/hello.js
