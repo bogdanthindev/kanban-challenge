@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>GG, esti developer!</h1>
+  <button type="button" id="getData">
+    Get data
+  </button>
+  <ul id="items"></ul>
+  <script>
+    (function(){
+      const button = document.getElementById('getData')
+      button.onclick = function () {
+        fetch('/api?query={getItems {name, _id}}')
+          .then(res=> {
+            return res.json()
+          })
+          .then(res => {
+            faLista(res.data.getItems)
+          })
+      }
+
+      function faLista (arr) {
+        var list = document.getElementById('items')
+        console.log(list)
+        arr.forEach(el => {
+          var li = document.createElement('li')
+          li.innerText = `${el.name} - ${el._id}`
+          list.appendChild(li)
+        })
+      }
+    })()
+  </script>
+</body>
+</html>

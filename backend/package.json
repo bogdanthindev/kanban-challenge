@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/hello.js"
+    "start": "node index.js",
+    "start-dev": "./node_modules/.bin/nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/bogdanthindev/kanban-challenge/issues"
   },
-  "homepage": "https://github.com/bogdanthindev/kanban-challenge#readme"
+  "homepage": "https://github.com/bogdanthindev/kanban-challenge#readme",
+  "dependencies": {
+    "good": "^7.1.0",
+    "good-console": "^6.4.0",
+    "good-squeeze": "^5.0.1",
+    "graphql": "^0.9.1",
+    "hapi": "^16.1.0",
+    "hapi-graphql": "^1.0.1",
+    "inert": "^4.1.0",
+    "mongoose": "^4.8.6",
+    "nodemon": "^1.11.0"
+  }
 }
