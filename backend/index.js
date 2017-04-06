@@ -1,23 +1,43 @@
 const Hapi = require('hapi')
 const Good = require('Good')
 const GraphQL = require('hapi-graphql')
+const path = require('path')
 const kanbanSchema = require('./schema/index')
 
 // Create a server with a host and port
-const server = new Hapi.Server()
+const server = new Hapi.Server({
+  connections: {
+    routes: {
+      files: {
+        relativeTo: path.join(process.cwd(), '../frontend')
+      }
+    }
+  }
+})
 server.connection({
   host: 'localhost',
   port: 8000
 })
 
+// https://www.atroo.de/hapi-js-webpack-and-react-router-with-history-api/
 server.register(require('inert'), (err) => {
   if (err) {
     throw err
   }
   server.route({
     method: 'GET',
-    path: '/',
-    handler: (request, reply) => reply.file('./index.html')
+    path: '/{param*}',
+    config: {
+      cors: {
+        origin: ['*']
+      }
+    },
+    handler: {
+      directory: {
+        path: 'build',
+        listing: true
+      }
+    }
   })
 })
 
